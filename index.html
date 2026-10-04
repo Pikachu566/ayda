@@ -1,206 +1,1044 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: #4682B4; /* Biru Laut */
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-            position: relative;
-            text-align: center;
-            color: white; /* Changed to white */
-        }
-        #bgImage {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('syg.jpg'); /* Replace with your JPG file path */
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-        }
-        #date {
-            font-size: 2em;
-            color: white; /* Changed to white */
-            text-shadow: 2px 2px 4px black; /* Added shadow */
-            margin-bottom: 30px;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.0);
-            border-radius: 10px;
-        }
-        .container {
-            font-size: 2.5em;
-            color: white; /* Changed to white */
-            text-shadow: 2px 2px 4px black; /* Added shadow */
-            margin-bottom: 20px;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.0);
-            border-radius: 10px;
-            display: inline-block;
-            text-align: center;
-        }
-        .balloon {
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
-            color: white; /* Changed to white */
-            text-shadow: 2px 2px 4px black; /* Added shadow */
-            font-size: 1.2em;
-        }
-        .balloon:hover {
-            animation-play-state: paused;
-        }
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-30px);
-            }
-        }
-        #typed {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: white; /* Changed to white */
-            text-shadow: 2px 2px 4px black; /* Added shadow */
-            margin-top: 20px;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.0);
-            border-radius: 10px;
-            display: inline-block;
-        }
-        .text {
-            color: white; /* Text color already white */
-            text-shadow: 2px 2px 4px black; /* Added shadow */
-            margin-bottom: 20px;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-        }
-        .highlight-box {
-            background-color: #51c0e8; /* Background remains the same */
-            color: white; /* Text color already white */
-            padding: 10px;
-            border-radius: 10px;
-            display: inline-block;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px black; /* Added shadow */
-        }
-        /* Media query for desktop */
-        @media only screen and (min-width: 768px) {
-            .container {
-                font-size: 2.5em;
-                margin-bottom: 30px;
-            }
-            #typed {
-                font-size: 1.2em;
-            }
-            .container {
-                text-align: center;
-            }
-        }
-        /* Media query for mobile */
-        @media only screen and (max-width: 767px) {
-            .container {
-                font-size: 2em;
-                text-align: center;
-            }
-            #typed {
-                font-size: 1em;
-            }
-        }
-        /* Link active state */
-        .container a:active {
-            color: black;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday, Syg ❤️</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: white;
+
+    background: #080812;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    background-image:
+        linear-gradient(
+            135deg,
+            rgba(8, 8, 18, 0.55),
+            rgba(25, 8, 30, 0.70)
+        ),
+        url("syg1.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    transform: scale(1.03);
+}
+
+
+/* blur layer */
+
+.background::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    backdrop-filter: blur(2px);
+}
+
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+.music-player {
+    position: fixed;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(440px, calc(100% - 30px));
+
+    padding: 12px 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background:
+        rgba(20, 20, 30, 0.75);
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.35);
+
+    z-index: 1000;
+}
+
+
+.music-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5f9e,
+            #9b5cff
+        );
+
+    font-size: 20px;
+
+    box-shadow:
+        0 5px 20px rgba(255,80,160,0.3);
+}
+
+
+.music-info {
+    flex: 1;
+
+    min-width: 0;
+
+    text-align: left;
+}
+
+
+.music-title {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.music-status {
+    margin-top: 2px;
+
+    font-size: 11px;
+
+    color: rgba(255,255,255,0.65);
+}
+
+
+.music-btn {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    transition: 0.25s;
+}
+
+
+.music-btn:hover {
+    background:
+        rgba(255,255,255,0.22);
+
+    transform: scale(1.08);
+}
+
+
+.music-btn:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        110px 20px 70px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    width: min(900px, 100%);
+
+    animation:
+        fadeUp 1.2s ease;
+}
+
+
+.small-title {
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255,255,255,0.75);
+
+    margin-bottom: 18px;
+}
+
+
+.hero h1 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(45px, 9vw, 90px);
+
+    line-height: 0.95;
+
+    font-weight: 500;
+
+    letter-spacing: -3px;
+
+    text-shadow:
+        0 5px 30px rgba(0,0,0,0.6);
+
+    margin-bottom: 22px;
+}
+
+
+.hero h1 span {
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #ffb7d5,
+            #d9b7ff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.subtitle {
+    font-size:
+        clamp(17px, 3vw, 23px);
+
+    color:
+        rgba(255,255,255,0.88);
+
+    margin-bottom: 30px;
+}
+
+
+.date-pill {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        10px 18px;
+
+    border:
+        1px solid rgba(255,255,255,0.18);
+
+    border-radius: 50px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 14px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.2);
+}
+
+
+/* =========================================================
+   BIRTHDAY CARD
+========================================================= */
+
+.card {
+    width: min(760px, 100%);
+
+    margin-top: 55px;
+
+    padding:
+        clamp(25px, 6vw, 55px);
+
+    border:
+        1px solid rgba(255,255,255,0.16);
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.09);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.35);
+
+    animation:
+        fadeUp 1.5s ease;
+}
+
+
+.card-label {
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(255,255,255,0.55);
+
+    margin-bottom: 12px;
+}
+
+
+.card h2 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(30px, 6vw, 52px);
+
+    font-weight: 500;
+
+    margin-bottom: 22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffb5d2,
+            #ffffff,
+            #d6bbff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.message {
+    font-size:
+        clamp(15px, 2vw, 18px);
+
+    line-height: 1.9;
+
+    color:
+        rgba(255,255,255,0.86);
+}
+
+
+.divider {
+    width: 70px;
+
+    height: 2px;
+
+    margin:
+        28px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff9fc5,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   HEART
+========================================================= */
+
+.big-heart {
+    font-size: 45px;
+
+    margin-top: 30px;
+
+    display: inline-block;
+
+    animation:
+        heartbeat 1.5s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 5px 15px
+            rgba(255,70,140,0.5)
+        );
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    margin-top: 45px;
+
+    font-size: 12px;
+
+    color:
+        rgba(255,255,255,0.5);
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    font-size: 18px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    animation:
+        floatHeart linear forwards;
+
+    z-index: 1;
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(0.7)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            scale(1.2)
+            rotate(25deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   SPARKLES
+========================================================= */
+
+.sparkle {
+    position: fixed;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 15px #ffb8d5;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation:
+        sparkleAnim 1.5s ease-out forwards;
+}
+
+
+@keyframes sparkleAnim {
+
+    0% {
+        transform: scale(0);
+
+        opacity: 0;
+    }
+
+    30% {
+        transform: scale(1.5);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .music-player {
+        top: 12px;
+
+        padding: 10px 12px;
+
+        border-radius: 16px;
+    }
+
+
+    .music-icon {
+        width: 38px;
+        height: 38px;
+
+        font-size: 17px;
+    }
+
+
+    .music-btn {
+        width: 38px;
+        height: 38px;
+
+        font-size: 15px;
+    }
+
+
+    main {
+        padding:
+            100px 15px 50px;
+    }
+
+
+    .small-title {
+        font-size: 11px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+
+    .card {
+        margin-top: 40px;
+
+        border-radius: 24px;
+    }
+
+
+    .message {
+        line-height: 1.8;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}
+
+</style>
 </head>
+
+
 <body>
-    <div class="container">
-        <div id="typed-strings">
-            <p>Selamat ulang tahun yang ke 26 Syg I Love You</p>
+
+
+<!-- ======================================================
+     BACKGROUND
+====================================================== -->
+
+<div class="background"></div>
+
+
+<!-- ======================================================
+     MUSIC PLAYER
+====================================================== -->
+
+<div class="music-player">
+
+    <div class="music-icon">
+        🎵
+    </div>
+
+
+    <div class="music-info">
+
+        <div class="music-title">
+            Birthday Song ❤️
         </div>
-        <span id="typed"></span>
-    </div>
-    <div id="bgImage"></div>
-    <div id="date">🎉05/10/2000🎉</div>
-    <div class="container">
-        <span class="balloon">H</span>
-        <span class="balloon">A</span>
-        <span class="balloon">P</span>
-        <span class="balloon">P</span>
-        <span class="balloon">Y</span>
-        <div class="balloon-container">
-            <span class="balloon">B</span>
-            <span class="balloon">I</span>
-            <span class="balloon">R</span>
-            <span class="balloon">T</span>
-            <span class="balloon">H</span>
-            <span class="balloon">D</span>
-            <span class="balloon">A</span>
-            <span class="balloon">Y</span>
+
+        <div
+            class="music-status"
+            id="musicStatus">
+
+            Music paused
+
         </div>
+
     </div>
-    <div class="container">
-        <div class="highlight-box">Nurul Aida Binti Mohd Noor</div>
+
+
+    <button
+        class="music-btn"
+        id="musicButton"
+        onclick="toggleMusic()"
+        aria-label="Play music">
+
+        ▶
+
+    </button>
+
+
+    <audio
+        id="music"
+        src="sound.mp3"
+        loop>
+    </audio>
+
+</div>
+
+
+
+<!-- ======================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="small-title">
+            A Special Day For Someone Special
+        </div>
+
+
+        <h1>
+
+            Happy Birthday
+
+            <span>
+                Syg ❤️
+            </span>
+
+        </h1>
+
+
+        <p class="subtitle">
+
+            Selamat ulang tahun yang ke-26,
+            I Love You ❤️
+
+        </p>
+
+
+        <div class="date-pill">
+
+            🎂
+
+            <span>
+                05 Oktober 2000
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BIRTHDAY CARD -->
+
+    <section class="card">
+
+        <div class="card-label">
+            For You
+        </div>
+
+
+        <h2>
+            Nurul Aida
+        </h2>
+
+
+        <div class="divider"></div>
+
+
+        <p class="message">
+
+            Hari ini adalah hari yang istimewa kerana
+            hari lahir awak.
+
+            <br><br>
+
+            Saya bersyukur kerana awak diberi peluang
+            untuk terus hidup dan lebih bersyukur lagi
+            kerana saya dipertemukan dengan awak.
+
+            <br><br>
+
+            Semoga umur yang baru ini membawa lebih
+            banyak kebahagiaan, kesihatan, ketenangan
+            dan rezeki dalam hidup awak.
+
+            <br><br>
+
+            Semoga segala impian dan urusan awak
+            dipermudahkan.
+
+            <br><br>
+
+            Terima kasih kerana hadir dalam hidup saya.
+
+        </p>
+
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        MADE WITH LOVE · 05.10.2026
+
     </div>
-    <div class="text">
-        <p>Hari ini adalah hari istimewa kerana hari lahir awak, Saya bersyukur kerana awak diberi kehidupan dan saya bertemu dengan awak, Saya ucapkan selamat hari lahir</p>
-    </div>
-    <script>
-        var options = {
-            stringsElement: '#typed-strings',
-            typeSpeed: 50,
-            backSpeed: 50,
-            backDelay: 2000,
-            startDelay: 1000,
-            loop: true,
-        };
-        var typed = new Typed('#typed', options);
 
-        function createFirework() {
-            const firework = document.createElement('div');
-            firework.className = 'firework';
-            firework.style.left = Math.random() * 100 + 'vw';
-            firework.style.top = Math.random() * 100 + 'vh';
-            document.body.appendChild(firework);
-            setTimeout(() => {
-                firework.remove();
-            }, 1500);
-        }
-        setInterval(createFirework, 500);
 
-        window.onload = function() {
-            var msg = new SpeechSynthesisUtterance();
-            msg.text = "Selamat Hari Lahir Nurul Aida";
-            msg.lang = 'ms-MY';
+</main>
 
-            // Menunggu hingga suara tersedia
-            speechSynthesis.onvoiceschanged = function() {
-                var voices = speechSynthesis.getVoices();
-                msg.voice = voices.find(function(voice) {
-                    return voice.name === 'Google Bahasa Malaysia';
-                });
 
-                window.speechSynthesis.speak(msg);
-            };
 
-            // Mengaktifkan suara saat pautan ditekan di perangkat mobile
-            document.addEventListener('touchstart', function() {
-                window.speechSynthesis.speak(msg);
+<script>
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+const music =
+    document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+const musicStatus =
+    document.getElementById("musicStatus");
+
+
+function toggleMusic() {
+
+    if (music.paused) {
+
+        music.play()
+            .then(() => {
+
+                musicButton.innerHTML = "❚❚";
+
+                musicStatus.innerHTML =
+                    "Now playing 🎵";
+
+            })
+            .catch(() => {
+
+                musicStatus.innerHTML =
+                    "Tekan sekali lagi untuk play 🎵";
+
             });
-        }
-    </script>
+
+    } else {
+
+        music.pause();
+
+        musicButton.innerHTML = "▶";
+
+        musicStatus.innerHTML =
+            "Music paused";
+
+    }
+
+}
+
+
+/* Update apabila lagu habis / pause */
+
+music.addEventListener(
+    "pause",
+    function () {
+
+        musicButton.innerHTML = "▶";
+
+        musicStatus.innerHTML =
+            "Music paused";
+
+    }
+);
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    const hearts = [
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "✨"
+    ];
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random() * hearts.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    const duration =
+        5 + Math.random() * 6;
+
+
+    heart.style.animationDuration =
+        duration + "s";
+
+
+    heart.style.fontSize =
+        (12 + Math.random() * 18) + "px";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(
+        () => heart.remove(),
+        duration * 1000
+    );
+
+}
+
+
+setInterval(
+    createHeart,
+    900
+);
+
+
+/* =========================================================
+   SPARKLES
+========================================================= */
+
+function createSparkle() {
+
+    const sparkle =
+        document.createElement("div");
+
+    sparkle.className =
+        "sparkle";
+
+
+    sparkle.style.left =
+        Math.random() * 100 + "vw";
+
+
+    sparkle.style.top =
+        Math.random() * 100 + "vh";
+
+
+    document.body.appendChild(
+        sparkle
+    );
+
+
+    setTimeout(
+        () => sparkle.remove(),
+        1500
+    );
+
+}
+
+
+setInterval(
+    createSparkle,
+    500
+);
+
+</script>
+
 </body>
 </html>
+```
